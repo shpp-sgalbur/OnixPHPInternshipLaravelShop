@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    return view('layouts.main');
+});
+Route::get('/catalog', function () {
     return view('layouts.catalog');
 });
-
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('/login', function () {
+    return view('login'
+            . '.catalog');
+});
+
+Route::get('/categories',[CategoryController::class,'index']);
