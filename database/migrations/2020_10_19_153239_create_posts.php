@@ -17,7 +17,7 @@ class CreatePosts extends Migration
             $table->id();
             $table->text('title');
             $table->text('text');
-            $table->timestamps('publish_at');
+            $table->timestamp('publish_at');
         });
     }
 
